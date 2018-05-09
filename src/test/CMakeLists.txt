@@ -13,7 +13,7 @@ add_executable(Test1 test/test.cxx)
 target_link_libraries(Test1 ${LIBS})
 
 # add the install targets
-install (TARGETS Test1 DESTINATION test)
+install (TARGETS Test1 DESTINATION "${CMAKE_INSTALL_BINDIR}/test")
 
 # does the usage message work?
 add_test (APP_Message_Test Test1)
