@@ -6,7 +6,7 @@ using namespace std;
 int main(int argc, char const *argv[]) {
 
     if(argc < 2) {
-        cout << "Usage: --find-devices --help --version";
+        cout << "Usage: --find-devices --help --version\n";
     }
     vector<serial::PortInfo> devices_found = serial::list_ports();
 
