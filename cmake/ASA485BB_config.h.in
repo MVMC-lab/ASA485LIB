@@ -1,0 +1,8 @@
+// the configured option and setting for ASA485BB library
+
+#define VERSION_MAJOR @ASA485BB_VERSION_MAJOR@
+#define VERSION_MINOR @ASA485BB_VERSION_MINOR@
+
+#cmakedefine USE_VCP
+
+#cmakedefine USE_DEBUG_MSG
