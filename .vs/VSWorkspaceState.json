@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\asacomm",
+    "\\src\\asacomm\\include",
+    "\\src\\asacomm\\src",
+    "\\src\\asacomm\\test",
+    "\\src\\serial\\examples",
+    "\\src\\serial\\tests",
+    "\\src\\test",
+    "\\src\\test\\test"
+  ],
+  "SelectedNode": "\\src\\asacomm\\src\\asacomm.cpp",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,6 +1,6 @@
 include(CTest)
 
-add_subdirectory(cserial)
+add_subdirectory(asacomm)
 add_subdirectory(test)
 add_subdirectory(asa485lib)
 add_subdirectory(asacore)

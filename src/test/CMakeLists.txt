@@ -7,6 +7,7 @@ option(USE_VCP
 # so that we will find ASA485BB_config.h
 include_directories("${PROJECT_BINARY_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/include")
+
 set(LIBS serial)
 # add the executable for test
 add_executable(Test1 test/test.cxx)
