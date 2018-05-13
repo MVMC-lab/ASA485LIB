@@ -1,5 +1,5 @@
 # Define library. Only source files here!
-project(asacomm LANGUAGES CXX)
+project(ASAComm LANGUAGES CXX)
 
 set (CSERIAL_VERSION_MAJOR 1)
 set (CSERIAL_VERSION_MINOR 0)
@@ -9,13 +9,17 @@ add_library(${PROJECT_NAME}
     src/asacomm.cpp
 )
 
+add_dependencies(${PROJECT_NAME} serial)
+
 set(LIBS serial)
 
 # Define headers for this library. PUBLIC headers are used for
 # compiling the library, and will be added to consumers' build
 # paths.
+message("ASAComm include : ${serial_INCLUDE_DIRS}")
 target_include_directories(${PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<BUILD_INTERFACE:${serial_INCLUDE_DIRS}>
     $<INSTALL_INTERFACE:include>
     PRIVATE src)
 
@@ -41,6 +45,11 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 # Put config file in per-project dir (name MUST match), can also
 # just go into 'cmake'.
 install(EXPORT "${PROJECT_NAME}Config" DESTINATION share/ASALib/cmake)
+
+# Expose public includes to other
+# subprojects through cache variable.
+set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include
+    CACHE INTERNAL "${PROJECT_NAME}: Include Directories" FORCE)
 
 # This makes the project importable from the build directory
 export(TARGETS ${PROJECT_NAME} FILE "${PROJECT_NAME}Config.cmake")

@@ -23,10 +23,12 @@ bool ASAComm::connect()
 		m_serial.close();
 	}
 
+	serial::Timeout tm = serial::Timeout::simpleTimeout(m_timeout);
+
 	// Configure the new setting with this class
 	m_serial.setBaudrate(m_baudrate);
 	m_serial.setPort(m_port);
-	m_serial.setTimeout(serial::Timeout::simpleTimeout(m_timeout));
+	m_serial.setTimeout(tm);
 	m_serial.setParity(serial::parity_none);
 
 	try { 

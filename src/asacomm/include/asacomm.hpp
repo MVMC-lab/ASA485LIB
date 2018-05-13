@@ -1,6 +1,8 @@
+#ifndef _H_ASACOMM
+#define _H_ASACOMM
 
 #include "serial/serial.h"
-
+#include <vector>
 
 class ASAComm {
 public:
@@ -30,9 +32,11 @@ public:
 
 	std::vector<std::string> getDeviceList();
 
+protected:
+	serial::Serial m_serial;
+
 private:
 	
-	serial::Serial m_serial;
 	unsigned int m_baudrate;
 	std::string m_port;
 	unsigned int m_timeout;
@@ -41,3 +45,5 @@ private:
 	std::vector<uint8_t> _buffer;
 
 };
+
+#endif // !_H_ASACOMM
