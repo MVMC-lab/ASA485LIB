@@ -43,3 +43,5 @@ install
 *.exe
 *.out
 *.app
+/.vs/cmake_file_test/v15/ipch/AutoPCH
+/.vs/cmake_file_test/v15

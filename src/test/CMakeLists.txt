@@ -8,12 +8,13 @@ option(USE_VCP
 include_directories("${PROJECT_BINARY_DIR}/include")
 include_directories("${PROJECT_SOURCE_DIR}/include")
 
+set(LIBS serial)
 # add the executable for test
 add_executable(Test1 test/test.cxx)
 target_link_libraries(Test1 ${LIBS})
 
 # add the install targets
-install (TARGETS Test1 DESTINATION test)
+install (TARGETS Test1 DESTINATION "test")
 
 # does the usage message work?
 add_test (APP_Message_Test Test1)
