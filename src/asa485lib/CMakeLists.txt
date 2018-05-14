@@ -58,7 +58,8 @@ set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include
 # This makes the project importable from the build directory
 export(TARGETS ${PROJECT_NAME} FILE "${PROJECT_NAME}Config.cmake")
 
-
+# For visual stdudio, which intelliSence
+include_directories(${ASAComm_INCLUDE_DIRS})
 
 
 ### Unit test ###
