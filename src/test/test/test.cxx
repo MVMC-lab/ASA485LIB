@@ -23,7 +23,7 @@ int main(int argc, char const *argv[]) {
      device.hardware_id.c_str() );
 	}
 
-	serial::Serial my_serial("COM9", 38400, serial::Timeout::simpleTimeout(10000));
+	serial::Serial my_serial("COM12", 38400, serial::Timeout::simpleTimeout(10000));
 	cout << "Is the serial port open?";
 	if (my_serial.isOpen())
 		cout << " Yes." << endl;

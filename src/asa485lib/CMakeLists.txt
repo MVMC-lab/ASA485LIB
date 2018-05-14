@@ -11,6 +11,10 @@ add_library(${PROJECT_NAME}
 	src/asa485.cpp
 )
 
+target_link_libraries(${PROJECT_NAME}
+	ASAComm
+)
+
 add_dependencies(${PROJECT_NAME} ASAComm)
 
 set(LIBS ASAComm)
@@ -53,3 +57,30 @@ set(${PROJECT_NAME}_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include
 
 # This makes the project importable from the build directory
 export(TARGETS ${PROJECT_NAME} FILE "${PROJECT_NAME}Config.cmake")
+
+
+
+
+### Unit test ###
+
+# Every library has unit tests, of course
+add_executable(ASA485_libtest
+    test/testlib.cpp)
+
+target_link_libraries(ASA485_libtest 
+	${PROJECT_NAME}
+)
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+	$<BUILD_INTERFACE:${ASAComm_INCLUDE_DIRS}>
+	$<BUILD_INTERFACE:${serial_INCLUDE_DIRS}>
+    $<INSTALL_INTERFACE:include>
+    PRIVATE src)
+
+# does the usage message work?
+add_test (ASA485_libtest ASA485_libtest )
+
+# add the install targets
+install (TARGETS ASA485_libtest DESTINATION "test")
+

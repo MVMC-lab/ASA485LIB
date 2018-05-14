@@ -64,7 +64,7 @@ target_link_libraries(testlib
     ${PROJECT_NAME})
 
 # does the usage message work?
-add_test (CSerial_libtest testlib)
+#add_test (CSerial_libtest testlib)
 
 # add the install targets
 install (TARGETS testlib DESTINATION "test")

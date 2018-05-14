@@ -127,4 +127,7 @@ uint8_t ASAComm::readByte() {
 	}
 	uint8_t data;
 	m_serial.read(&data, 1);
+
+	// Return received data
+	return data;
 }
