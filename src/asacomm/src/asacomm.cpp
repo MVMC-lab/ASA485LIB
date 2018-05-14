@@ -73,6 +73,10 @@ bool ASAComm::setBaudrate(unsigned int baudrate)
 	return true;
 }
 
+unsigned int ASAComm::getBaudrate() {
+	return m_baudrate;
+}
+
 bool ASAComm::setTimeout(unsigned int timeout_ms)
 {
 	m_timeout = timeout_ms;
