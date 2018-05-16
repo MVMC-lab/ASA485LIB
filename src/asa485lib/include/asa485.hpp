@@ -1,3 +1,6 @@
+#ifndef _H_ASA485
+#define _H_ASA485
+
 #include"asacomm.hpp"
 
 // Header for uint8_t definition
@@ -36,3 +39,5 @@ private:
 
 
 };
+
+#endif // _H_ASA485

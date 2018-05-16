@@ -5,13 +5,13 @@
 
 IRQHandle::IRQHandle() : ID(DEFAULT_ID) {
 	// setup default function
-	p_IRQFunc = []() {; };
+	p_IRQFunc = [](ASA485*) {; };
 }
 
 IRQHandle::IRQHandle(int id) : 
 	ID(id) {
 	// setup default function
-	p_IRQFunc = []() {; };
+	p_IRQFunc = [](ASA485*) {; };
 }
 
 IRQHandle::IRQHandle(int id, IRQFunc func_cp) : 
@@ -28,12 +28,12 @@ void IRQHandle::registerCallback(IRQFunc func_cb) {
 	p_IRQFunc = func_cb;
 }
 
-void IRQHandle::callback() {
+void IRQHandle::callback(ASA485* p_asa485) {
 	if (p_IRQFunc == nullptr) {
 		throw IRQFuncNotExistException();
 	}
 	// Call the IRQ function
-	p_IRQFunc();
+	p_IRQFunc(p_asa485);
 }
 
 int IRQHandle::getID() {

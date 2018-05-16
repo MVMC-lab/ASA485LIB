@@ -25,7 +25,7 @@ void IRQManager::spinOnce() {
 	if (p_asacomm->getISR() == false) return;
 	for (IRQHandle& handle : m_IRQHandles) {
 		DEBUG_MSG("Handle ID " << handle.getID() << " Called");
-		handle.callback();
+		handle.callback(p_asacomm);
 	}
 }
 
