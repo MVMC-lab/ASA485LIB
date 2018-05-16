@@ -23,10 +23,10 @@ int main(int argc, char** argv) {
 
 	IRQHandle handle_1(1);
 	//handle_1.registerCallback(test_cb);
-	handle_1.registerCallback([] {cout << "CB 1" << endl; });
+	handle_1.registerCallback([] (ASA485* comm) {cout << "CB 1" << endl; });
 
 	IRQHandle handle_2(2);
-	handle_2.registerCallback([] {cout << "CB 2" << endl; });
+	handle_2.registerCallback([] (ASA485* comm) {cout << "CB 2" << endl; });
 
 	irq_manager.registerIRQHandle(handle_1);
 	irq_manager.registerIRQHandle(handle_2);
