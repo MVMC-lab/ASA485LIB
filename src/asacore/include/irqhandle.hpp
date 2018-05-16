@@ -8,16 +8,19 @@ typedef void(*IRQFunc)(void);
 class IRQHandle {
 public:
 	IRQHandle();
-	IRQHandle(uint8_t id);
-	IRQHandle(uint8_t id, IRQFunc& func_cp);
+	IRQHandle(int id);
+	IRQHandle(int id, IRQFunc func_cp);
 	~IRQHandle();
 
-	void registerCallback(IRQFunc& func_cb);
+	void registerCallback(IRQFunc func_cb);
 	void callback();
+
+	int getID();
+	void setID(int id);
 
 protected:
 	
-	uint8_t ID;
+	int ID;
 
 	// The callback function pointer
 	IRQFunc p_IRQFunc;

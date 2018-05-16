@@ -11,16 +11,22 @@ using namespace std;
 
 class IRQManager {
 public:
-	IRQManager();
+	IRQManager(ASA485& asa_comm);
 	~IRQManager();
 	
 	void spinOnce();
+
+	IRQHandle& findIRQHandle(int id);
+	size_t getCount();
 
 	void registerIRQHandle(IRQHandle& irqhandle);
 	vector<IRQHandle> getIRQHandleList();
 
 private:
 
+	vector<IRQHandle> m_IRQHandles;
+
+	ASA485* p_asacomm;
 };
 
 

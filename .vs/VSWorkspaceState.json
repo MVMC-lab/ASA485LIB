@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\asa485lib",
+    "\\src\\asa485lib\\src",
     "\\src\\asacomm",
     "\\src\\asacomm\\include",
     "\\src\\asacomm\\src",
-    "\\src\\asacomm\\test",
-    "\\src\\serial\\examples",
-    "\\src\\serial\\tests",
-    "\\src\\test",
-    "\\src\\test\\test"
+    "\\src\\asacore",
+    "\\src\\asacore\\src",
+    "\\src\\serial"
   ],
-  "SelectedNode": "\\src\\asacomm\\src\\asacomm.cpp",
+  "SelectedNode": "\\src\\asacore\\src\\irqexception.cpp",
   "PreviewInSolutionExplorer": false
 }
