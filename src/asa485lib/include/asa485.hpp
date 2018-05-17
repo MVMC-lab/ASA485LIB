@@ -1,3 +1,6 @@
+#ifndef _H_ASA485
+#define _H_ASA485
+
 #include"asacomm.hpp"
 
 // Header for uint8_t definition
@@ -21,6 +24,9 @@ public:
 	size_t sendWrapMultiBytes(std::vector<uint8_t> data);
 	bool sendWrapByte(uint8_t data);
 
+	std::vector<uint8_t> readWrapMultiBytes(size_t count);
+	uint8_t readWrapByte();
+
 	/* [Wrap] send Trigger signal(interrupt) to slaves*/
 	bool sendTrigger();
 
@@ -36,3 +42,5 @@ private:
 
 
 };
+
+#endif // _H_ASA485

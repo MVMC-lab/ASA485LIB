@@ -7,7 +7,7 @@
       "configurationType": "Debug",
       "inheritEnvironments": [ "msvc_x86" ],
       "buildRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\build\\${name}",
-      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}",
+      "installRoot": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\${name}", 
       "includePath": "${env.USERPROFILE}\\CMakeBuilds\\${workspaceHash}\\install\\include",
       "cmakeCommandArgs": "",
       "buildCommandArgs": "-v",
