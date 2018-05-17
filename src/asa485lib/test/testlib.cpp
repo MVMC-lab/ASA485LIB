@@ -37,6 +37,51 @@ int main(int argc, char** argv) {
 
 	std::cout << "Read :" << asa_comm.readByte() << std::endl;
 	std::cout << "Read :" << asa_comm.readByte() << std::endl;
+
+	try {
+		asa_comm.sendWrapByte('K');
+	}
+	catch (serial::SerialException e) {
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+
+	std::cout << "Read :" << asa_comm.readWrapByte() << std::endl;
+	//std::cout << "Read :" << asa_comm.readWrapByte() << std::endl;
+
+
+	vector<uint8_t> data;
+	data.clear();
+	data.push_back('A');
+	data.push_back('P');
+	data.push_back('P');
+	data.push_back('L');
+	data.push_back('E');
+
+	int send_c(0);
+	try {
+		send_c = asa_comm.sendWrapMultiBytes(data);
+	}
+	catch (serial::SerialException e) {
+		std::cerr << e.what() << std::endl;
+		return -1;
+	}
+
+	cout << "Send  " << send_c << " Data" << endl;;
+
+	vector<uint8_t> rec_data;
+
+	try {
+		rec_data = asa_comm.readWrapMultiBytes(data.size());
+	}
+	catch (serial::SerialException e) {
+		std::cerr << e.what() << std::endl;
+	}
+
+	for (char byte : rec_data) {
+		std::cout << "Read :" << byte << std::endl;
+	}
+
 	
 	bool isrState(false);
 	try {
@@ -57,7 +102,7 @@ int main(int argc, char** argv) {
 	std::cout << std::endl;
 
 
-	//system("pause");
+	system("pause");
 
 	return 0;
 }
