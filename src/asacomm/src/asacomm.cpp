@@ -117,6 +117,9 @@ bool ASAComm::writeByte(uint8_t data) {
 }
 
 std::vector<uint8_t> ASAComm::readMultiBytes(size_t count) {
+	// Clear buffer first
+	_buffer.clear();
+
 	if (!isConnect()) {
 		throw serial::PortNotOpenedException("readMultiBytes Error");
 	}

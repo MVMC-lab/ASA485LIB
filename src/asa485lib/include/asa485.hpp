@@ -24,6 +24,9 @@ public:
 	size_t sendWrapMultiBytes(std::vector<uint8_t> data);
 	bool sendWrapByte(uint8_t data);
 
+	std::vector<uint8_t> readWrapMultiBytes(size_t count);
+	uint8_t readWrapByte();
+
 	/* [Wrap] send Trigger signal(interrupt) to slaves*/
 	bool sendTrigger();
 
